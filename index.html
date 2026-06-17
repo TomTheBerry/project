@@ -5,6 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>TheBerryProject - Coming Soon</title>
     <link rel="stylesheet" href="styles.css">
+    <script>
+        // Auto-redirect any non-root paths back to root
+        if (window.location.pathname !== '/' && window.location.pathname !== '') {
+            window.location.href = '/';
+        }
+    </script>
 </head>
 <body>
     <div class="container">
