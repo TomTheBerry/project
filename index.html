@@ -6,26 +6,25 @@
     <title>TheBerryProject - Coming Soon</title>
     <link rel="stylesheet" href="styles.css">
     <script>
-        // Auto-redirect any non-root paths back to root
-        if (window.location.pathname !== '/' && window.location.pathname !== '' && window.location.pathname !== '/index.html') {
+        if (window.location.pathname === '/67') {
+            window.location.href = '/67.html';
+        }
+        else if (window.location.pathname !== '/' && window.location.pathname !== '' && window.location.pathname !== '/index.html') {
             window.history.replaceState(null, null, '/');
         }
     </script>
 </head>
 <body>
     <div class="container">
-        <!-- Logo/Brand -->
         <div class="header">
             <img src="logo.png" alt="TheBerryProject" class="logo">
         </div>
 
-        <!-- Main Content -->
         <div class="content">
             <h1>Coming Soon</h1>
             <p>Something is plotting, being prepared to emerge. Stay tuned.</p>
         </div>
 
-        <!-- Footer -->
         <div class="footer">
             <p>&copy; 2026 TheBerryProject. All rights reserved.</p>
         </div>
