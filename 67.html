@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>67 PARTY! 🎉</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: #000000;
+            color: #ffffff;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            overflow: hidden;
+        }
+
+        .party-container {
+            text-align: center;
+            animation: scaleIn 0.6s ease-out;
+        }
+
+        h1 {
+            font-size: 80px;
+            font-weight: 700;
+            margin-bottom: 20px;
+            letter-spacing: 3px;
+            background: linear-gradient(45deg, #ff006e, #ffbe0b, #06ffa5);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: pulse 1s ease-in-out infinite;
+        }
+
+        .emoji {
+            font-size: 60px;
+            display: inline-block;
+            margin: 0 10px;
+            animation: bounce 1s ease-in-out infinite;
+        }
+
+        .emoji:nth-child(2) {
+            animation-delay: 0.1s;
+        }
+
+        .emoji:nth-child(3) {
+            animation-delay: 0.2s;
+        }
+
+        p {
+            font-size: 24px;
+            margin-top: 20px;
+            color: #b0b0b0;
+            animation: fadeIn 0.8s ease-out 0.3s backwards;
+        }
+
+        .confetti {
+            position: fixed;
+            pointer-events: none;
+        }
+
+        @keyframes scaleIn {
+            from {
+                transform: scale(0.5);
+                opacity: 0;
+            }
+            to {
+                transform: scale(1);
+                opacity: 1;
+            }
+        }
+
+        @keyframes pulse {
+            0%, 100% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.1);
+            }
+        }
+
+        @keyframes bounce {
+            0%, 100% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-20px);
+            }
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="party-container">
+        <h1>🎉 67 PARTY! 🎉</h1>
+        <p>Redirecting back home in 3 seconds...</p>
+    </div>
+
+    <script>
+        // Confetti effect
+        function createConfetti() {
+            const colors = ['#ff006e', '#ffbe0b', '#06ffa5', '#ffffff', '#b0b0b0'];
+            for (let i = 0; i < 30; i++) {
+                const confetti = document.createElement('div');
+                confetti.className = 'confetti';
+                confetti.style.left = Math.random() * 100 + '%';
+                confetti.style.top = '-10px';
+                confetti.style.width = Math.random() * 10 + 5 + 'px';
+                confetti.style.height = Math.random() * 10 + 5 + 'px';
+                confetti.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
+                confetti.style.borderRadius = Math.random() > 0.5 ? '50%' : '0';
+                confetti.style.opacity = Math.random() * 0.7 + 0.3;
+
+                document.body.appendChild(confetti);
+
+                const duration = Math.random() * 3 + 2;
+                const xMove = (Math.random() - 0.5) * 200;
+
+                confetti.animate([
+                    { transform: 'translateY(0) translateX(0) rotate(0deg)', opacity: 1 },
+                    { transform: `translateY(${window.innerHeight + 20}px) translateX(${xMove}px) rotate(360deg)`, opacity: 0 }
+                ], {
+                    duration: duration * 1000,
+                    easing: 'ease-in'
+                });
+
+                setTimeout(() => confetti.remove(), duration * 1000);
+            }
+        }
+
+        // Create confetti on load
+        createConfetti();
+
+        // Create more confetti every 500ms for 3 seconds
+        const confettiInterval = setInterval(createConfetti, 500);
+
+        // Redirect after 3 seconds
+        setTimeout(() => {
+            clearInterval(confettiInterval);
+            window.location.href = '/';
+        }, 3000);
+    </script>
+</body>
+</html>

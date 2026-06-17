@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>404 - Redirecting</title>
+    <script>
+        // GitHub Pages 404 redirect handler
+        (function() {
+            const path = window.location.pathname;
+            
+            // Handle /67 redirect
+            if (path.includes('/67')) {
+                window.location.href = '/67.html';
+            }
+            // Redirect all other 404s to home
+            else {
+                window.location.href = '/';
+            }
+        })();
+    </script>
+</head>
+<body>
+    <p>Redirecting...</p>
+</body>
+</html>
